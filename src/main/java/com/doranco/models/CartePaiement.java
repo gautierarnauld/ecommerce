@@ -109,7 +109,6 @@ class CartePaiement {
             throw new Exception("Erreur lors du chiffrement du numéro de la carte : " + e.getMessage());
         }
     }
-
     
     // Méthode pour crypter le cryptogramme
     public void crypterCryptogramme(String cleSecrete) throws Exception {
