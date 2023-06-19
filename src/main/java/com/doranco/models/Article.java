@@ -1,5 +1,10 @@
 package com.doranco.models;
 
+import com.doranco.utils.DatabaseConnector;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
 public class Article {
     //Variables
     private int id;
@@ -103,9 +108,31 @@ public class Article {
         this.commentaire = commentaire;
     }
     
-    // Méthode pour obtenir la remise en pourcentage
     public double getRemiseEnPourcentage() {
         return remise * 100; // Multiplier par 100 pour obtenir le pourcentage
     }
     
+    /*Méthode pour ajouter un article dans la base de données*/
+    public void ajouterArticle() {
+        String query = "INSERT INTO Article (id, nom, prix, vendu, photo, remise, stock, description, commentaire) " +
+                       "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+        try (Connection connection = DatabaseConnector.getConnection();
+             PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setInt(1, id);
+            statement.setString(2, nom);
+            statement.setDouble(3, prix);
+            statement.setBoolean(4, vendu);
+            statement.setString(5, photo);
+            statement.setDouble(6, remise);
+            statement.setInt(7, stock);
+            statement.setString(8, description);
+            statement.setString(9, commentaire);
+
+            statement.executeUpdate();
+            System.out.println("L'article a été ajouté à la base de données.");
+        } catch (SQLException e) {
+            System.err.println("Erreur lors de l'ajout de l'article : " + e.getMessage());
+        }
+    }
 }
