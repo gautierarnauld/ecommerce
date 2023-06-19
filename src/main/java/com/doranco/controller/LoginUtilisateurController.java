@@ -8,11 +8,11 @@ import org.springframework.stereotype.Controller;
 public class LoginUtilisateurController {
 
     private ProfilUtilisateur getProfilUtilisateur(String username) {
-        // Méthode pour obtenir le profil de l'utilisateur à partir de la base de données
-        // Elle devrait retourner le profil de l'utilisateur en fonction de son nom d'utilisateur
-        // ou renvoyer une valeur par défaut si le profil n'est pas trouvé
+        /* Méthode pour obtenir le profil de l'utilisateur à partir de la base de données
+        Elle devrait retourner le profil de l'utilisateur en fonction de son nom d'utilisateur
+        ou renvoyer une valeur par défaut si le profil n'est pas trouvé*/
 
-        // Exemple simplifié : retourne un profil en fonction du nom d'utilisateur
+        // Retourne un profil en fonction du nom d'utilisateur
         if (username.equals("magasinier")) {
             return ProfilUtilisateur.MAGASINIER;
         } else {
