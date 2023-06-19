@@ -1,0 +1,13 @@
+/home/gadl/NetBeansProjects/projetEcommerce/eCommerce/src/main/java/com/doranco/enumeration/ProfilUtilisateur.java
+/home/gadl/NetBeansProjects/projetEcommerce/eCommerce/src/main/java/com/doranco/controller/AccueilController.java
+/home/gadl/NetBeansProjects/projetEcommerce/eCommerce/src/main/java/com/doranco/controller/LoginUtilisateurController.java
+/home/gadl/NetBeansProjects/projetEcommerce/eCommerce/src/main/java/com/doranco/controller/GestionAchatsController.java
+/home/gadl/NetBeansProjects/projetEcommerce/eCommerce/src/main/java/com/doranco/controller/AddUtilisateurController.java
+/home/gadl/NetBeansProjects/projetEcommerce/eCommerce/src/main/java/com/doranco/services/ArticleService.java
+/home/gadl/NetBeansProjects/projetEcommerce/eCommerce/src/main/java/com/doranco/utils/CustomExceptionHandler.java
+/home/gadl/NetBeansProjects/projetEcommerce/eCommerce/src/main/java/com/doranco/controller/GestionAdminController.java
+/home/gadl/NetBeansProjects/projetEcommerce/eCommerce/src/main/java/com/doranco/models/Article.java
+/home/gadl/NetBeansProjects/projetEcommerce/eCommerce/src/main/java/com/doranco/services/UtilisateurService.java
+/home/gadl/NetBeansProjects/projetEcommerce/eCommerce/src/main/java/com/doranco/controller/GestionArticlesController.java
+/home/gadl/NetBeansProjects/projetEcommerce/eCommerce/src/main/java/com/doranco/controller/ArticleController.java
+/home/gadl/NetBeansProjects/projetEcommerce/eCommerce/src/main/java/com/doranco/models/Utilisateur.java
