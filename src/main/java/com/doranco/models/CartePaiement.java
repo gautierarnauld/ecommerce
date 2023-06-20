@@ -137,4 +137,6 @@ class CartePaiement {
         }
     }
     
+    /*Méthode pour ajouter une carte de paiement dans la base de données*/
+    
 }
