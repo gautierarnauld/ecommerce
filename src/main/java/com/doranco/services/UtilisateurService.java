@@ -1,4 +1,4 @@
-package services;
+package com.doranco.services;
 
 public class UtilisateurService {
 }
