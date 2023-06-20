@@ -5,9 +5,7 @@ services/UtilisateurService.class
 com/doranco/controller/ArticleController.class
 com/doranco/controller/GestionAchatsController.class
 com/doranco/controller/GestionAdminController.class
-models/Article.class
 enumeration/ProfilUtilisateur.class
 com/doranco/controller/LoginUtilisateurController.class
 com/doranco/controller/AddUtilisateurController.class
 com/doranco/controller/GestionArticlesController.class
-models/Utilisateur.class
