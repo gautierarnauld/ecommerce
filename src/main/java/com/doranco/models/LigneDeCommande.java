@@ -19,6 +19,8 @@ public class LigneDeCommande {
         this.article = article;
     }
     
+    public LigneDeCommande(){}
+    
     //Getter & setter
     public int getId() {
         return id;
