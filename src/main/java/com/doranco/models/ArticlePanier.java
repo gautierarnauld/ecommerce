@@ -1,6 +1,6 @@
 package com.doranco.models;
 
-class ArticlePanier {
+public class ArticlePanier {
     //Variables
     private int id;
     private Article article;
