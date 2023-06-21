@@ -2,12 +2,14 @@ package com.doranco.ecommerce;
 
 import com.doranco.models.Adresse;
 import com.doranco.models.Article;
+import com.doranco.models.ArticlePanier;
 import com.doranco.models.Utilisateur;
 import com.doranco.models.Commentaire;
 import com.doranco.models.CartePaiement;
 import com.doranco.models.Categorie;
 import com.doranco.models.Commande;
 import com.doranco.services.AdresseService;
+import com.doranco.services.ArticlePanierService;
 import com.doranco.services.ArticleService;
 import com.doranco.services.CartePaiementService;
 import com.doranco.services.CategorieService;
@@ -69,17 +71,17 @@ public class ECommerce {
         utilisateurService.ajouterUtilisateur(utilisateur1);*/
         
         //- - - - - - - - Création d'un nouveau commentaire - - - - - - - - 
-        CommentaireService commentaireService = new CommentaireService();
+        /*CommentaireService commentaireService = new CommentaireService();
         
         Commentaire commentaire = new Commentaire();
-        commentaire.setId(4); 
+        commentaire.setId(4);
         commentaire.setTexte("Vraiment incroyable !");
         commentaire.setNote(4);
-
+        
         int articleId = 6;
-        int utilisateurId = 1; 
-
-        commentaireService.ajouterCommentaire(commentaire, articleId, utilisateurId);
+        int utilisateurId = 1;
+        
+        commentaireService.ajouterCommentaire(commentaire, articleId, utilisateurId);*/
 
         //- - - - - - - - Création d'une carte de paiement - - - - - - - - 
         /*CartePaiementService cartePaiementService = new CartePaiementService();
@@ -143,5 +145,25 @@ public class ECommerce {
         // Appel du service pour ajouter la catégorie
         CategorieService categorieService = new CategorieService();
         categorieService.ajouterCategorie(nouvelleCategorie);*/
+        
+        //- - - - - - - - Création d'un article panier - - - - - - - - 
+        ArticlePanierService articlePanierService = new ArticlePanierService();
+
+        ArticlePanier nouvelArticlePanier = new ArticlePanier();
+        nouvelArticlePanier.setId(4);
+
+        Article article = new Article();
+        article.setId(7); // ID de l'article à ajouter au panier
+
+        nouvelArticlePanier.setArticle(article);
+        nouvelArticlePanier.setQuantite(1);
+
+        Utilisateur utilisateur = new Utilisateur();
+        utilisateur.setId(2); // ID de l'utilisateur associé au panier
+
+        nouvelArticlePanier.setUtilisateur(utilisateur);
+
+        // Appel de la méthode ajouterArticlePanier pour ajouter l'article panier
+        articlePanierService.ajouterArticlePanier(nouvelArticlePanier);
     }
 }
