@@ -1,10 +1,5 @@
 package com.doranco.models;
 
-import com.doranco.utils.DatabaseConnector;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-
 public class Adresse {
     //Variables
     private int id;
@@ -74,26 +69,5 @@ public class Adresse {
 
     public void setUtilisateur(Utilisateur utilisateur) {
         this.utilisateur = utilisateur;
-    }
-    
-    //Méthode pour ajouter une adresse dans la base de données
-    public void ajouterAdresse() {
-        String query = "INSERT INTO Adresse (id, numero, rue, ville, codePostal) " +
-                       "VALUES (?, ?, ?, ?, ?)";
-
-        try (Connection connection = DatabaseConnector.getConnection();
-             PreparedStatement statement = connection.prepareStatement(query)) {
-            statement.setInt(1, id);
-            statement.setString(2, numero);
-            statement.setString(3, rue);
-            statement.setString(4, ville);
-            statement.setString(5, codePostal);
-
-            statement.executeUpdate();
-            System.out.println("L'adresse a été ajoutée à la base de données.");
-        } catch (SQLException e) {
-            System.err.println("Erreur lors de l'ajout de l'adresse : " + e.getMessage());
-        }
-    }
-
+    }    
 }
