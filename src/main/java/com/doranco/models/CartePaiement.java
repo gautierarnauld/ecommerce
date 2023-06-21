@@ -1,11 +1,9 @@
 package com.doranco.models;
 
+import com.doranco.services.CartePaiementService;
 import java.util.Date;
-import javax.crypto.Cipher;
-import javax.crypto.spec.SecretKeySpec;
-import java.util.Base64;
 
-class CartePaiement {
+public class CartePaiement {
     //Variables
     private int id;
     private String nomProprietaire;
@@ -25,6 +23,8 @@ class CartePaiement {
         this.cryptogramme = cryptogramme;
         this.utilisateur = utilisateur;
     }
+    
+    public CartePaiement(){}
 
     //Getter & Setter
     public int getId() {
@@ -67,76 +67,31 @@ class CartePaiement {
         this.prenomProprietaire = prenomProprietaire;
     }
 
-    public void setNumero(String numero) {
-        this.numero = numero;
+    public void setNumero(String numero) throws Exception {
+        //Cryptage du numéro de carte
+        try {
+            String secretKey = "MaCleSecrete1234";
+            this.numero = CartePaiementService.encrypt(numero, secretKey);
+        } catch (Exception e) {
+            throw new Exception("Erreur lors du cryptage du numéro de carte : " + e.getMessage());
+        }
     }
 
     public void setDateFinValidite(Date dateFinValidite) {
         this.dateFinValidite = dateFinValidite;
     }
 
-    public void setCryptogramme(String cryptogramme) {
-        this.cryptogramme = cryptogramme;
+    public void setCryptogramme(String cryptogramme) throws Exception {
+        //Cryptage du cryptogramme
+        try {
+            String secretKey = "MaCleSecrete5678";
+            this.cryptogramme = CartePaiementService.encrypt(cryptogramme, secretKey);
+        } catch (Exception e) {
+            throw new Exception("Erreur lors du cryptage du cryptogramme de carte : " + e.getMessage());
+        }
     }
 
     public void setUtilisateur(Utilisateur utilisateur) {
         this.utilisateur = utilisateur;
-    }
-    
-    // Méthode pour crypter le numéro de carte
-    public void crypterNumero(String cleSecrete) throws Exception {
-        try {
-            // Création de la clé secrète pour le chiffrement AES
-            SecretKeySpec secretKey = new SecretKeySpec(cleSecrete.getBytes(), "AES");
-
-            // Création de l'objet Cipher avec l'algorithme de chiffrement AES en mode ECB avec le padding PKCS5
-            Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
-
-            // Initialisation du chiffrement en mode chiffrement avec la clé secrète
-            cipher.init(Cipher.ENCRYPT_MODE, secretKey);
-
-            // Conversion du numéro de la carte en tableau de bytes
-            byte[] numeroBytes = this.numero.getBytes();
-
-            // Chiffrement du numéro de la carte
-            byte[] numeroCrypteBytes = cipher.doFinal(numeroBytes);
-
-            // Conversion du numéro de la carte chiffré en une chaîne encodée en Base64
-            this.numero = Base64.getEncoder().encodeToString(numeroCrypteBytes);
-            
-        } catch (Exception e) {
-            // En cas d'erreur lors du chiffrement, on lance une exception avec un message d'erreur personnalisé
-            throw new Exception("Erreur lors du chiffrement du numéro de la carte : " + e.getMessage());
-        }
-    }
-    
-    // Méthode pour crypter le cryptogramme
-    public void crypterCryptogramme(String cleSecrete) throws Exception {
-        try {
-            // Création de la clé secrète pour le chiffrement AES
-            SecretKeySpec secretKey = new SecretKeySpec(cleSecrete.getBytes(), "AES");
-
-            // Création de l'objet Cipher avec l'algorithme de chiffrement AES en mode ECB avec le padding PKCS5
-            Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
-
-            // Initialisation du chiffrement en mode chiffrement avec la clé secrète
-            cipher.init(Cipher.ENCRYPT_MODE, secretKey);
-
-            // Conversion du cryptogramme en tableau de bytes
-            byte[] cryptogrammeBytes = this.cryptogramme.getBytes();
-
-            // Chiffrement du cryptogramme
-            byte[] cryptogrammeCrypteBytes = cipher.doFinal(cryptogrammeBytes);
-
-            // Conversion du cryptogramme chiffré en une chaîne encodée en Base64
-            this.cryptogramme = Base64.getEncoder().encodeToString(cryptogrammeCrypteBytes);
-            
-        } catch (Exception e) {
-            // En cas d'erreur lors du chiffrement, on lance une exception avec un message d'erreur personnalisé
-            throw new Exception("Erreur lors du chiffrement du cryptogramme : " + e.getMessage());
-        }
-    }
-    
-    /*Méthode pour ajouter une carte de paiement dans la base de données*/
-    
+    }    
 }
