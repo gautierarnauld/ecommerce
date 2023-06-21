@@ -69,17 +69,17 @@ public class ECommerce {
         utilisateurService.ajouterUtilisateur(utilisateur1);*/
         
         //- - - - - - - - Création d'un nouveau commentaire - - - - - - - - 
-        /*CommentaireService commentaireService = new CommentaireService();
+        CommentaireService commentaireService = new CommentaireService();
         
         Commentaire commentaire = new Commentaire();
-        commentaire.setId(3); 
-        commentaire.setTexte("Vraiment pas ouf !!!!");
-        commentaire.setNote(1);
+        commentaire.setId(4); 
+        commentaire.setTexte("Vraiment incroyable !");
+        commentaire.setNote(4);
 
-        int articleId = 3;
-        int utilisateurId = 5; 
+        int articleId = 6;
+        int utilisateurId = 1; 
 
-        commentaireService.ajouterCommentaire(commentaire, articleId, utilisateurId);*/
+        commentaireService.ajouterCommentaire(commentaire, articleId, utilisateurId);
 
         //- - - - - - - - Création d'une carte de paiement - - - - - - - - 
         /*CartePaiementService cartePaiementService = new CartePaiementService();
