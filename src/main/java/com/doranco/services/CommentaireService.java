@@ -8,6 +8,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CommentaireService {
     
@@ -64,4 +66,58 @@ public class CommentaireService {
         return commentaire;
     }
 
+    // Méthode pour récupérer les commentaires d'un article par son ID
+    public List<Commentaire> getCommentairesByArticleId(int articleId) {
+        // Implémentez ici votre logique pour récupérer les commentaires d'un article en fonction de son ID
+        // Assurez-vous d'adapter cette logique en fonction de votre modèle de données et de votre système de persistance
+        
+        List<Commentaire> commentaires = new ArrayList<>();
+
+        // Exemple de logique pour récupérer les commentaires d'un article depuis une source de données
+        for (Commentaire commentaire : getAllCommentaires()) {
+            if (commentaire.getArticle().getId() == articleId) {
+                commentaires.add(commentaire);
+            }
+        }
+
+        return commentaires;
+    }
+    
+    // Méthode fictive pour récupérer tous les commentaires depuis une source de données
+    private List<Commentaire> getAllCommentaires() {
+        List<Commentaire> commentaires = new ArrayList<>();
+
+        // Connexion à la base de données
+        try (Connection connection = DatabaseConnector.getConnection()) {
+            String query = "SELECT id, texte, note, articleId FROM Commentaire";
+            PreparedStatement statement = connection.prepareStatement(query);
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                int id = resultSet.getInt("id");
+                String texte = resultSet.getString("texte");
+                int note = resultSet.getInt("note");
+                int articleId = resultSet.getInt("articleId");
+                int utilisateurId = resultSet.getInt("utilisateurId");
+
+                // Récupération de l'article associé au commentaire (à adapter selon votre modèle de données)
+                ArticleService as = new ArticleService();
+                Article article = as.getArticleById(articleId);
+                
+                UtilisateurService us = new UtilisateurService();
+                Utilisateur utilisateur = us.getUtilisateurById(utilisateurId);
+
+                Commentaire commentaire = new Commentaire(id, texte, note, article, utilisateur);
+                commentaires.add(commentaire);
+            }
+
+            resultSet.close();
+            statement.close();
+        } catch (SQLException e) {
+            System.err.println("Erreur lors de la récupération des commentaires : " + e.getMessage());
+        }
+
+        return commentaires;
+    }
+    
 }
