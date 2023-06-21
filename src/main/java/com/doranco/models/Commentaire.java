@@ -67,25 +67,5 @@ public class Commentaire {
 
     public void setUtilisateur(Utilisateur utilisateur) {
         this.utilisateur = utilisateur;
-    }
-    
-    /*Méthode pour ajouter un commentaire dans la base de données*/
-    public void ajouterCommentaire(Commentaire commentaire, int articleId, int utilisateurId) {
-        String query = "INSERT INTO Commentaire (id, texte, note, articleId, utilisateurId) " +
-                       "VALUES (?, ?, ?, ?, ?)";
-
-        try (Connection connection = DatabaseConnector.getConnection();
-             PreparedStatement statement = connection.prepareStatement(query)) {
-            statement.setInt(1, commentaire.getId());
-            statement.setString(2, commentaire.getTexte());
-            statement.setInt(3, commentaire.getNote());
-            statement.setInt(4, articleId);
-            statement.setInt(5, utilisateurId);
-
-            statement.executeUpdate();
-            System.out.println("Le commentaire "+ commentaire.getId() +" a été ajouté à la base de données.");
-        } catch (SQLException e) {
-            System.err.println("Erreur lors de l'ajout du commentaire : " + e.getMessage());
-        }
-    }
+    }        
 }
