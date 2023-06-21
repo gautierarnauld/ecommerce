@@ -5,6 +5,10 @@
     <artifactId>eCommerce</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
+    
+    <name>ChrystalEtGautier</name>
+    <description>Projet Chrystal et Gautier</description>
+    
     <dependencies>
         <dependency>
             <groupId>org.springframework</groupId>
