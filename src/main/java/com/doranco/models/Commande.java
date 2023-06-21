@@ -1,15 +1,15 @@
 package com.doranco.models;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
-class Commande {
+public class Commande {
     //Variables
     private int id;
     private String numero;
-    private Date dateCreation;
-    private Date dateLivraison;
+    private String dateCreation;
+    private String dateLivraison;
     private double totaleRemise;
     private double fraisExpedition;
     private double totalGeneral;
@@ -20,7 +20,7 @@ class Commande {
     private List<LigneDeCommande> lignesDeCommande;
     
     //Constructeur
-    public Commande(int id, String numero, Date dateCreation, Date dateLivraison, double totaleRemise, double fraisExpedition, double totalGeneral, Adresse adresseFacturation, Adresse adresseLivraison, CartePaiement cartePaiementDefaut, Utilisateur utilisateur, List<LigneDeCommande> lignesDeCommande) {
+    public Commande(int id, String numero, String dateCreation, String dateLivraison, double totaleRemise, double fraisExpedition, double totalGeneral, Adresse adresseFacturation, Adresse adresseLivraison, CartePaiement cartePaiementDefaut, Utilisateur utilisateur, List<LigneDeCommande> lignesDeCommande) {
         this.id = id;
         this.numero = numero;
         this.dateCreation = dateCreation;
@@ -34,6 +34,8 @@ class Commande {
         this.utilisateur = utilisateur;
         this.lignesDeCommande = lignesDeCommande;
     }
+    
+    public Commande(){}
 
     //Getter & Setter
     public int getId() {
@@ -45,13 +47,11 @@ class Commande {
     }
 
     public String getDateCreation() {
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-        return formatter.format(dateCreation);
+        return dateCreation;
     }
 
     public String getDateLivraison() {
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-        return formatter.format(dateLivraison);
+        return dateLivraison;
     }
 
     public double getTotaleRemise() {
@@ -94,11 +94,11 @@ class Commande {
         this.numero = numero;
     }
 
-    public void setDateCreation(Date dateCreation) {
+    public void setDateCreation(String dateCreation) {
         this.dateCreation = dateCreation;
     }
 
-    public void setDateLivraison(Date dateLivraison) {
+    public void setDateLivraison(String dateLivraison) {
         this.dateLivraison = dateLivraison;
     }
 
@@ -132,7 +132,5 @@ class Commande {
 
     public void setLignesDeCommande(List<LigneDeCommande> lignesDeCommande) {
         this.lignesDeCommande = lignesDeCommande;
-    }
-    
-    
+    }    
 }
