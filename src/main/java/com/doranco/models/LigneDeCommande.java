@@ -1,6 +1,6 @@
 package com.doranco.models;
 
-class LigneDeCommande {
+public class LigneDeCommande {
     //Variables
     private int id;
     private int quantite;
