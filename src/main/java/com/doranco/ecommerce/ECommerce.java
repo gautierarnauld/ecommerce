@@ -8,6 +8,7 @@ import com.doranco.models.Commentaire;
 import com.doranco.models.CartePaiement;
 import com.doranco.models.Categorie;
 import com.doranco.models.Commande;
+import com.doranco.models.LigneDeCommande;
 import com.doranco.services.AdresseService;
 import com.doranco.services.ArticlePanierService;
 import com.doranco.services.ArticleService;
@@ -15,6 +16,7 @@ import com.doranco.services.CartePaiementService;
 import com.doranco.services.CategorieService;
 import com.doranco.services.CommandeService;
 import com.doranco.services.CommentaireService;
+import com.doranco.services.LigneDeCommandeService;
 import com.doranco.services.UtilisateurService;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -147,23 +149,44 @@ public class ECommerce {
         categorieService.ajouterCategorie(nouvelleCategorie);*/
         
         //- - - - - - - - Création d'un article panier - - - - - - - - 
-        ArticlePanierService articlePanierService = new ArticlePanierService();
-
+        /*ArticlePanierService articlePanierService = new ArticlePanierService();
+        
         ArticlePanier nouvelArticlePanier = new ArticlePanier();
-        nouvelArticlePanier.setId(4);
-
+        nouvelArticlePanier.setId(5);
+        
         Article article = new Article();
-        article.setId(7); // ID de l'article à ajouter au panier
-
+        article.setId(3); // ID de l'article à ajouter au panier
+        
         nouvelArticlePanier.setArticle(article);
-        nouvelArticlePanier.setQuantite(1);
-
+        nouvelArticlePanier.setQuantite(7);
+        
         Utilisateur utilisateur = new Utilisateur();
-        utilisateur.setId(2); // ID de l'utilisateur associé au panier
-
+        utilisateur.setId(8); // ID de l'utilisateur associé au panier
+        
         nouvelArticlePanier.setUtilisateur(utilisateur);
-
+        
         // Appel de la méthode ajouterArticlePanier pour ajouter l'article panier
-        articlePanierService.ajouterArticlePanier(nouvelArticlePanier);
+        articlePanierService.ajouterArticlePanier(nouvelArticlePanier);*/
+        
+        //- - - - - - - - Création d'une ligne de commande - - - - - - - - 
+        LigneDeCommandeService ligneDeCommandeService = new LigneDeCommandeService();
+
+        // Création d'une nouvelle ligne de commande
+        LigneDeCommande nouvelleLigne = new LigneDeCommande();
+        nouvelleLigne.setId(3);
+        nouvelleLigne.setQuantite(1);
+        nouvelleLigne.setPrixUnitaire(8.0);
+        nouvelleLigne.setRemiseArticle(0.0);
+
+        Commande commande = new Commande();
+        commande.setId(3); // ID de la commande associée
+        nouvelleLigne.setCommande(commande);
+
+        Article articleLigne = new Article();
+        articleLigne.setId(4); // ID de l'article associé
+        nouvelleLigne.setArticle(articleLigne);
+
+        // Ajout de la ligne de commande
+        ligneDeCommandeService.ajouterLigneDeCommande(nouvelleLigne);
     }
 }
