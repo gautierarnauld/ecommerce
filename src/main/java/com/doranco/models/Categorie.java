@@ -1,5 +1,8 @@
 package com.doranco.models;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Categorie {
     // Variables
     private int id;
@@ -8,6 +11,9 @@ public class Categorie {
     private boolean isRemiseCumulable;
     private String photo;
     private Article article;
+    
+    private List<Article> articles = new ArrayList<>();
+    private List<Integer> articleIds = new ArrayList<>();    
 
     // Constructeurs
     public Categorie(int id, String nom, double remise, boolean isRemiseCumulable, String photo, Article article) {
@@ -75,5 +81,21 @@ public class Categorie {
     // Méthode pour obtenir la remise en pourcentage
     public double getRemiseEnPourcentage() {
         return remise * 100; // Multiplier par 100 pour obtenir le pourcentage
+    }
+
+    public void setArticles(List<Article> articles) {
+        this.articles = articles;
+    }
+
+    public List<Article> getArticles() {
+        return articles;
+    }
+    
+    public List<Integer> getArticleIds() {
+        return articleIds;
+    }
+
+    public void setArticleIds(List<Integer> articleIds) {
+        this.articleIds = articleIds;
     }
 }
