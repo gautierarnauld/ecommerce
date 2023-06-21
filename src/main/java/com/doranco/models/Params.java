@@ -1,6 +1,7 @@
 package com.doranco.models;
 
 public class Params {
+    //Variables
     private int id;
     private String cleCryptagePwd;
     private String cleCryptageCp;
