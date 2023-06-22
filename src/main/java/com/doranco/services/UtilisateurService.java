@@ -129,8 +129,6 @@ public class UtilisateurService {
         }
 
         return commandes;
-    }
-
-    
+    }  
 
 }
