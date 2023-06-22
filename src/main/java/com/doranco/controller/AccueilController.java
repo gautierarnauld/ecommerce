@@ -1,18 +1,18 @@
 package com.doranco.controller;
 
-/*import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;*/
+import org.springframework.web.bind.annotation.GetMapping;
 
 /*contrôleur Spring chargé de gérer les requêtes relatives à la page d'accueil 
 et à la gestion des articles*/
 
-//@Controller
+@Controller
 public class AccueilController {
     
     /*GetMapping signifie que la classe répond aux requêtes GET sur la racine du contexte de l'application*/
-    /*@GetMapping("/")
+    @GetMapping("/")
     public String accueil() {
     // Récupérer l'objet d'authentification de l'utilisateur actuel
     org.springframework.security.core.Authentication authentication =
@@ -35,5 +35,5 @@ public class AccueilController {
     // Logique de gestion des articles à implémenter ici
     // Retourne le nom de la vue à afficher (dans ce cas, "gestion-articles.xhtml")
     return "gestion-articles";
-    }*/
+    }
 }
