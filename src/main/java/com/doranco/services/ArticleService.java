@@ -61,4 +61,28 @@ public class ArticleService {
 
         return article;
     }
+
+    public void mettreAJourStock(Article article, int quantiteCommandee) {
+        int ancienStock = article.getStock();
+        int nouveauStock = ancienStock - quantiteCommandee;
+        article.setStock(nouveauStock);
+
+        // Mettre à jour l'article dans la base de données
+        mettreAJourArticle(article);
+    }
+    
+    private void mettreAJourArticle(Article article) {
+        String query = "UPDATE Article SET stock = ? WHERE id = ?";
+
+        try (Connection connection = DatabaseConnector.getConnection();
+             PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setInt(1, article.getStock());
+            statement.setInt(2, article.getId());
+
+            statement.executeUpdate();
+            System.out.println("Stock de l'article mis à jour avec succès.");
+        } catch (SQLException e) {
+            System.err.println("Erreur lors de la mise à jour du stock de l'article : " + e.getMessage());
+        }
+    }
 }
