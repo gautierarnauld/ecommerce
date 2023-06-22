@@ -1,6 +1,8 @@
 package com.doranco.services;
 
+import com.doranco.models.Article;
 import com.doranco.models.Commande;
+import com.doranco.models.LigneDeCommande;
 import com.doranco.utils.DatabaseConnector;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -33,4 +35,38 @@ public class CommandeService {
         }
     }
 
+    public boolean effectuerAchat(Commande commande) {
+        // Ajouter la commande à la base de données
+        ajouterCommande(commande);            
+
+        // Vérifier si l'achat a réussi
+        boolean achatReussi = true;  // Supposons que l'achat réussit par défaut  
+        
+        // Créer les lignes de commande, mettre à jour les stocks, etc.
+        try {
+            // Créer les lignes de commande
+            for (LigneDeCommande ligne : commande.getLignesDeCommande()) {
+                LigneDeCommandeService ligneDeCommandeService = new LigneDeCommandeService();
+                ligneDeCommandeService.ajouterLigneDeCommande(ligne);
+            }
+
+            // Mettre à jour les stocks
+            for (LigneDeCommande ligne : commande.getLignesDeCommande()) {
+                ArticleService articleService = new ArticleService();
+                Article article = ligne.getArticle();
+                int quantiteCommandee = ligne.getQuantite();
+                articleService.mettreAJourStock(article, quantiteCommandee);
+            }
+
+            // Si toutes les opérations se sont déroulées correctement, l'achat est réussi
+            achatReussi = true;
+            
+        } catch (Exception e) {
+            // En cas d'erreur, afficher un message d'erreur ou enregistrer les erreurs dans les journaux
+            System.err.println("Erreur lors de l'achat : " + e.getMessage());
+            achatReussi = false;
+        }
+
+        return achatReussi;
+    }   
 }
