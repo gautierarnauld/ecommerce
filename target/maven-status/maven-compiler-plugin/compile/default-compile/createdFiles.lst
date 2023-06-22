@@ -1,3 +1,4 @@
+com\doranco\servlet\MaServlet.class
 com\doranco\models\Commande.class
 com\doranco\services\CommandeService.class
 com\doranco\services\CategorieService.class
@@ -11,7 +12,6 @@ com\doranco\models\CartePaiement.class
 com\doranco\controller\LoginUtilisateurController.class
 com\doranco\controller\AccueilController.class
 com\doranco\services\ArticleService.class
-.netbeans_automatic_build
 com\doranco\ecommerce\ECommerce.class
 com\doranco\models\Commentaire.class
 com\doranco\controller\GestionAdminController.class
