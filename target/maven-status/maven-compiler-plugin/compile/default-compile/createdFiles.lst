@@ -11,6 +11,7 @@ com\doranco\models\CartePaiement.class
 com\doranco\controller\LoginUtilisateurController.class
 com\doranco\controller\AccueilController.class
 com\doranco\services\ArticleService.class
+.netbeans_automatic_build
 com\doranco\ecommerce\ECommerce.class
 com\doranco\models\Commentaire.class
 com\doranco\controller\GestionAdminController.class
@@ -24,6 +25,7 @@ com\doranco\services\CommentaireService.class
 com\doranco\utils\DatabaseConnector.class
 com\doranco\models\Utilisateur.class
 com\doranco\models\ArticlePanier.class
+com\doranco\webservice\CommentaireWebService.class
 com\doranco\controller\ArticleController.class
 com\doranco\controller\GestionArticlesController.class
 com\doranco\controller\AddUtilisateurController.class

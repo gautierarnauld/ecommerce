@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Gestion des articles</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+
+    <h:body>
+        <h1>Gestion des articles</h1>
+        <h2>Liste des articles</h2>
+
+        <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nom</th>
+                <th>Prix</th>
+                <th>Vente</th>
+                <th>Photo</th>
+                <th>Taux de remise</th>
+                <th>Stock</th>
+            </tr>
+        </thead>
+        <tbody>
+            <ui:repeat value="#{articleController.articles}" var="article">
+                <tr>
+                    <td>#{article.id}</td>
+                    <td>#{article.nom}</td>
+                    <td>#{article.prix}</td>
+                    <td>#{article.vendu ? 'Oui' : 'Non'}</td>
+                    <td>#{article.photo}</td>
+                    <td>#{article.tauxRemise}</td>
+                    <td>#{article.stock}</td>
+                </tr>
+            </ui:repeat>
+        </tbody>
+    </table>
+
+        <h2>Ajouter un nouvel article</h2>
+        <h:form>
+            <h:outputLabel for="nom" value="Nom de l'article:" />
+            <h:inputText id="nom" value="#{articleController.nouvelArticle.nom}" />
+
+            <h:outputLabel for="prix" value="Prix de l'article:" />
+            <h:inputText id="prix" value="#{articleController.nouvelArticle.prix}" />
+
+            <h:outputLabel for="vendu" value="Se vend encore:" />
+            <h:selectBooleanCheckbox id="vendu" value="#{articleController.nouvelArticle.vendu}" />
+
+            <h:outputLabel for="photo" value="Photo de l'article:" />
+            <h:inputText id="photo" value="#{articleController.nouvelArticle.photo}" />
+
+            <h:outputLabel for="tauxRemise" value="Taux de remise:" />
+            <h:inputText id="tauxRemise" value="#{articleController.nouvelArticle.tauxRemise}" />
+
+            <h:outputLabel for="stock" value="Nombre en stock:" />
+            <h:inputText id="stock" value="#{articleController.nouvelArticle.stock}" />
+
+            <h:commandButton value="Ajouter" action="#{articleController.ajouterArticle}" />
+        </h:form>
+
+        <h2>Modifier un article</h2>
+        <h:form>
+            <h:outputLabel for="id" value="ID de l'article:" />
+            <h:inputText id="id" value="#{articleController.article.id}" />
+
+            <h:outputLabel for="nom" value="Nom de l'article:" />
+            <h:inputText id="nom" value="#{articleController.article.nom}" />
+
+            <h:outputLabel for="prix" value="Prix de l'article:" />
+            <h:inputText id="prix" value="#{articleController.article.prix}" />
+
+            <h:outputLabel for="enVente" value="En vente:" />
+            <h:selectBooleanCheckbox id="enVente" value="#{articleController.article.enVente}" />
+
+            <h:outputLabel for="photo" value="Photo de l'article:" />
+            <h:inputText id="photo" value="#{articleController.article.photo}" />
+
+            <h:outputLabel for="tauxRemise" value="Taux de remise:" />
+            <h:inputText id="tauxRemise" value="#{articleController.article.tauxRemise}" />
+
+            <h:outputLabel for="stock" value="Nombre en stock:" />
+            <h:inputText id="stock" value="#{articleController.article.stock}" />
+
+            <h:commandButton value="Modifier" action="#{articleController.modifierArticle}" />
+        </h:form>
+
+        <h2>Supprimer un article</h2>
+        <h:form>
+            <h:outputLabel for="id" value="ID de l'article à supprimer:" />
+            <h:inputText id="id" value="#{articleController.articleIdToDelete}" />
+
+            <h:commandButton value="Supprimer" action="#{articleController.supprimerArticle}" />
+        </h:form>
+    </h:body>
+</html>
