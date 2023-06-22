@@ -190,6 +190,6 @@ public class ECommerce {
         // Ajout de la ligne de commande
         ligneDeCommandeService.ajouterLigneDeCommande(nouvelleLigne);*/
         
-        System.out.println("uhbojnfrnneogjnoejsgn");
+        
     }
 }
