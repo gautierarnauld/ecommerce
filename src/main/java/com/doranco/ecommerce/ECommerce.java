@@ -1,5 +1,6 @@
 package com.doranco.ecommerce;
 
+import ch.qos.logback.core.CoreConstants;
 import com.doranco.models.Adresse;
 import com.doranco.models.Article;
 import com.doranco.models.ArticlePanier;
@@ -169,24 +170,26 @@ public class ECommerce {
         articlePanierService.ajouterArticlePanier(nouvelArticlePanier);*/
         
         //- - - - - - - - Création d'une ligne de commande - - - - - - - - 
-        LigneDeCommandeService ligneDeCommandeService = new LigneDeCommandeService();
-
+        /*LigneDeCommandeService ligneDeCommandeService = new LigneDeCommandeService();
+        
         // Création d'une nouvelle ligne de commande
         LigneDeCommande nouvelleLigne = new LigneDeCommande();
         nouvelleLigne.setId(3);
         nouvelleLigne.setQuantite(1);
         nouvelleLigne.setPrixUnitaire(8.0);
         nouvelleLigne.setRemiseArticle(0.0);
-
+        
         Commande commande = new Commande();
         commande.setId(3); // ID de la commande associée
         nouvelleLigne.setCommande(commande);
-
+        
         Article articleLigne = new Article();
         articleLigne.setId(4); // ID de l'article associé
         nouvelleLigne.setArticle(articleLigne);
-
+        
         // Ajout de la ligne de commande
-        ligneDeCommandeService.ajouterLigneDeCommande(nouvelleLigne);
+        ligneDeCommandeService.ajouterLigneDeCommande(nouvelleLigne);*/
+        
+        System.out.println("uhbojnfrnneogjnoejsgn");
     }
 }
