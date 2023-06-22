@@ -1,5 +1,6 @@
 package com.doranco.controller;
 
+import com.doranco.models.Commande;
 import com.doranco.services.CommandeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -9,10 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-//@RequestMapping("/gestion-achats")
+@RequestMapping("/gestion-achats")
 public class GestionAchatsController {
     
-    /*private CommandeService commandeService;
+    private CommandeService commandeService;
     
     @Autowired
     public GestionAchatsController(CommandeService commandeService) {
@@ -21,12 +22,12 @@ public class GestionAchatsController {
     
     @PostMapping("/achats")
     public ResponseEntity<String> effectuerAchat(@RequestBody Commande commande) {
-    boolean achatReussi = achatService.effectuerAchat(commande);
-    if (achatReussi) {
-    return ResponseEntity.ok("Achat effectué avec succès.");
-    } else {
-    return ResponseEntity.badRequest().body("Impossible de finaliser l'achat.");
+        boolean achatReussi = commandeService.effectuerAchat(commande);
+        if (achatReussi) {
+            return ResponseEntity.ok("Achat effectué avec succès.");
+        } else {
+            return ResponseEntity.badRequest().body("Impossible de finaliser l'achat.");
+        }
     }
-    }*/
     
 }
