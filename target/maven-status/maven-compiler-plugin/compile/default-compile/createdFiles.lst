@@ -2,7 +2,7 @@ com\doranco\servlet\MaServlet.class
 com\doranco\models\Commande.class
 com\doranco\services\CommandeService.class
 com\doranco\services\CategorieService.class
-enumeration\ProfilUtilisateur.class
+com\doranco\enumeration\ProfilUtilisateur.class
 com\doranco\services\LigneDeCommandeService.class
 com\doranco\services\ArticlePanierService.class
 com\doranco\utils\CustomExceptionHandler.class
