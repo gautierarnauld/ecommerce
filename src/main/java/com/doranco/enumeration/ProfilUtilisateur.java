@@ -1,4 +1,4 @@
-package enumeration;
+package com.doranco.enumeration;
 
 public enum ProfilUtilisateur {
     CLIENT,
