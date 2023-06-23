@@ -29,14 +29,14 @@ public class ECommerce {
         /*ArticleService articleService = new ArticleService();
         
         Article article = new Article();
-        article.setId(9);
-        article.setNom("Poulet roti");
-        article.setPrix(9.99);
+        article.setId(10);
+        article.setNom("voiturette");
+        article.setPrix(99.99);
         article.setVendu(true);
-        article.setPhoto("https://www.undejeunerdesoleil.com/wp-content/uploads/2023/01/Reussir_poulet_roti_secret_recette.jpg");
+        article.setPhoto("https://www.prairymood.com/7547/set-de-4-petites-voitures.jpg");
         article.setRemise(0.2); // 20% de remise
         article.setStock(10);
-        article.setDescription("au barbecue");
+        article.setDescription("Set de 4 Petites Voitures");
         article.setCommentaire("");
         
         // Ajout de l'article à la base de données
@@ -46,31 +46,31 @@ public class ECommerce {
         /*AdresseService adresseService = new AdresseService();
         
         Adresse adresse = new Adresse();
-        adresse.setId(10);
-        adresse.setNumero("1213");
-        adresse.setRue("Rue de la Paix");
-        adresse.setVille("Toulouse");
-        adresse.setCodePostal("31000");
-
+        adresse.setId(11);
+        adresse.setNumero("113");
+        adresse.setRue("Rue de la Mer");
+        adresse.setVille("Paris");
+        adresse.setCodePostal("75002");
+        
         adresseService.ajouterAdresse(adresse);*/
         
         //- - - - - - - - Création d'un objet utilisateur - - - - - - - - 
         /*UtilisateurService utilisateurService = new UtilisateurService();
         
         Adresse adresse1 = new Adresse();
-        adresse1.setId(8);        
-
+        adresse1.setId(11);
+        
         Utilisateur utilisateur1 = new Utilisateur();
-        utilisateur1.setId(8);
-        utilisateur1.setNom("Martin");
-        utilisateur1.setPrenom("Sophie");
-        utilisateur1.setDateNaissance(new java.sql.Date(95, 5, 10));
+        utilisateur1.setId(11);
+        utilisateur1.setNom("Arnauld");
+        utilisateur1.setPrenom("Gautier");
+        utilisateur1.setDateNaissance(new java.sql.Date(97, 5, 1));
         utilisateur1.setActif(true);
-        utilisateur1.setEmail("sophie.martin@example.com");
-        utilisateur1.setMotDePasse("password123");
-        utilisateur1.setNumeroTelephone("9876543210");     
+        utilisateur1.setEmail("gautier@arnauld.com");
+        utilisateur1.setMotDePasse("MotDePassssssse");
+        utilisateur1.setNumeroTelephone("0486388773");
         utilisateur1.setAdresse(adresse1);
-
+        
         utilisateurService.ajouterUtilisateur(utilisateur1);*/
         
         //- - - - - - - - Création d'un nouveau commentaire - - - - - - - - 
@@ -90,14 +90,14 @@ public class ECommerce {
         /*CartePaiementService cartePaiementService = new CartePaiementService();
         
         CartePaiement cartePaiement = new CartePaiement();
-        cartePaiement.setId(6);
-        cartePaiement.setNomProprietaire("Martine");
-        cartePaiement.setPrenomProprietaire("Anne");
-        cartePaiement.setNumero("9119480800223456");
-        cartePaiement.setDateFinValidite(new java.sql.Date(2024, 2, 1));
-        cartePaiement.setCryptogramme("349");
+        cartePaiement.setId(7);
+        cartePaiement.setNomProprietaire("Arnauld");
+        cartePaiement.setPrenomProprietaire("Gautier");
+        cartePaiement.setNumero("9119400800223456");
+        cartePaiement.setDateFinValidite(new java.sql.Date(2024, 7, 1));
+        cartePaiement.setCryptogramme("129");
         
-        int userId = 6;
+        int userId = 11;
         
         cartePaiementService.ajouterCartePaiement(cartePaiement, userId);*/
 
