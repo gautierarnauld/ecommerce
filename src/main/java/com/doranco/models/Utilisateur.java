@@ -14,7 +14,7 @@ public class Utilisateur {
     private String email;
     private String motDePasse; /*mdp crypter*/
     private String numeroTelephone;
-    private Adresse adresse;
+    private Adresse adresse; /* - - - Liste d'adresse à faire - - -*/
     private List<Commande> commandes;
     private CartePaiement cartePaiement;
     private Commentaire commentaire;
